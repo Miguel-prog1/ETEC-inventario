@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Entornos{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    {% for entorno in entornos%}
+    <div>
+    <h3>{{entorno["nombre"]}}</h3>
+    <h4>{{entorno["peine"]}}</h4>
+    </div>
+    {% endfor %}  
+{% endblock %}
