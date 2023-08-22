@@ -7,8 +7,9 @@
 {% block content %}
     {% for entorno in entornos%}
     <div>
-    <h3>{{entorno["nombre"]}}</h3>
-    <h4>{{entorno["peine"]}}</h4>
+        <h2> Entorno Formativo {{entorno["nombre"]}}</h2>
+    <h3>Peine: {{entorno["peine"]}} - Piso: {{entorno["piso"]}}  </h3>
+
     </div>
     {% endfor %}  
 {% endblock %}

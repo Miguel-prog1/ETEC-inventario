@@ -12,6 +12,6 @@ bp = Blueprint('entornos', __name__)
 def index():
     db = get_db()
     entornos= db.execute(
-        'SELECT id, nombre, peine FROM entornos ORDER BY nombre'
+        'SELECT id, nombre, peine,piso FROM entornos ORDER BY nombre'
     ).fetchall()
     return render_template('entorno/index.html', entornos=entornos)
