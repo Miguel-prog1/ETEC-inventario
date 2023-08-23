@@ -38,3 +38,12 @@ INSERT INTO entornos(id, nombre, peine, piso) VALUES (8,113, 1, 2);
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (9,114, 1, 2);
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (10,115, 1, 2);
 
+INSERT INTO entornos(id, nombre, peine, piso) VALUES (11,201, 2, 1);
+INSERT INTO entornos(id, nombre, peine, piso) VALUES (12,202, 2, 1);
+INSERT INTO entornos(id, nombre, peine, piso) VALUES (13,203, 2, 1);
+INSERT INTO entornos(id, nombre, peine, piso) VALUES (14,204, 2, 1);
+INSERT INTO entornos(id, nombre, peine, piso) VALUES (15,205, 2, 1);
+INSERT INTO entornos(id, nombre, peine, piso) VALUES (16,211, 2,2);
+INSERT INTO entornos(id, nombre, peine, piso) VALUES (17,212, 2,2);
+INSERT INTO entornos(id, nombre, peine, piso) VALUES (18,213, 2,2);
+INSERT INTO entornos(id, nombre, peine, piso) VALUES (19,214, 2,2);
