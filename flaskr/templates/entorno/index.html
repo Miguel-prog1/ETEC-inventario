@@ -6,12 +6,14 @@
 {% endblock %}
 
 {% block content %}
+  <ul id="lista-entornos">
     {% for entorno in entornos%}
-    <div>
-        <h2> Entorno Formativo {{entorno["nombre"]}}</h2>
+    <li>
+        <h2> <a class="action" href="{{ url_for('entorno.update', nombre=entorno['nombre']) }}">{{entorno["nombre"]}}</a></h2>
     <h3>Peine: {{entorno["peine"]}} - Piso: {{entorno["piso"]}} </h3>
 
-    </div>
+    </li>
     {% endfor %}  
+  </ul>
 {% endblock %}
 

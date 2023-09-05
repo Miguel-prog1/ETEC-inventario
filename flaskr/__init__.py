@@ -37,8 +37,8 @@ def create_app(test_config=None):
     app.register_blueprint(auth.bp)
     
 
-    from . import entornos
-    app.register_blueprint(entornos.bp)
+    from . import entorno
+    app.register_blueprint(entorno.bp)
 
     app.add_url_rule('/', endpoint='index')
 
