@@ -56,4 +56,4 @@ INSERT INTO entornos(id, nombre, peine, piso) VALUES (24, 312, 3, 2);
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (25, 313, 3, 2);
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (26, 314, 3, 2);
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (27, 315, 3, 2);
-
+INSERT INTO entornos(id, nombre, peine, piso) VALUES (0, "biblioteca",0,"null")
