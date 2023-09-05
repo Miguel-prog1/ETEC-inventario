@@ -6,14 +6,26 @@
 {% endblock %}
 
 {% block content %}
-  <ul id="lista-entornos">
-    {% for entorno in entornos%}
-    <li>
-        <h2> <a class="action" href="{{ url_for('entorno.update', nombre=entorno['nombre']) }}">{{entorno["nombre"]}}</a></h2>
-    <h3>Peine: {{entorno["peine"]}} - Piso: {{entorno["piso"]}} </h3>
-
-    </li>
+  <ol class="lista-peines">
+    {% for peine, pisos in peines.items() %}
+      <li>
+        <h1>Peine: {{peine}} </h1>
+        <ol class="lista-pisos">
+          {% for piso, entornos in pisos.items()%}
+            <li>
+              <h2>Piso: {{piso}}</h2>
+              <ol class="lista-entornos">
+                {% for entorno in entornos %}
+                  <li>
+                      <h2> <a class="action" href="{{ url_for('entorno.update', nombre=entorno['nombre']) }}">{{entorno["nombre"]}}</a></h2>
+                  </li>
+                {% endfor %}  
+                </ol>
+            </li>
+          {% endfor %}  
+        </ol>
+      </li>
     {% endfor %}  
-  </ul>
+  </ol>
 {% endblock %}
 

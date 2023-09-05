@@ -27,6 +27,8 @@ CREATE TABLE "entornos" (
 );
 
 
+INSERT INTO entornos(id, nombre, peine, piso) VALUES (0, "biblioteca",0,1);
+
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (1,101, 1, 1);
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (2,102, 1, 1);
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (3,103, 1, 1);
@@ -56,4 +58,3 @@ INSERT INTO entornos(id, nombre, peine, piso) VALUES (24, 312, 3, 2);
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (25, 313, 3, 2);
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (26, 314, 3, 2);
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (27, 315, 3, 2);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (0, "biblioteca",0,"null")
