@@ -10,11 +10,14 @@ from flaskr.db import get_db
 bp = Blueprint('item', __name__)
 
 
-@bp.route('/<string:nombre>/update')
-def index():
+@bp.route('item/<number:id>')
+def item_details(id):
     db = get_db()
-    items = db.execute(
-        'SELECT id, proveniencia, entorno , caracteristica_de_movilidad_de_armario, tipo_armario FROM entornos ORDER BY nombre'
+    item = db.execute(
+        'SELECT id, proveniencia, entorno , caracteristica_de_movilidad_de_armario, tipo_armario, descripcion, nombre FROM entornos ORDER BY id'
     ).fetchall()
+    if item is None:
+        abort(404, "No existe el item de id: {0}".format(id))
 
-    return render_template('item/index.html', items=items)
+
+    return render_template('item/detail.html', items=item)
