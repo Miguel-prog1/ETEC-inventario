@@ -11,7 +11,7 @@ bp = Blueprint('entorno', __name__)
 @bp.route('/')
 def index():
     db = get_db()
-    entornos= db.execute(
+    entornos = db.execute(
         'SELECT id, nombre, peine,piso FROM entornos ORDER BY peine, piso, nombre'
     ).fetchall()
     # voy a armar un diccionario que tenga como claves los peines de la escuela
@@ -32,5 +32,5 @@ def index():
     return render_template('entorno/index.html', peines=peines)
 
 @bp.route('/<string:nombre>/update')
-def update(nombre):
+def update(nombre): 
     return nombre
