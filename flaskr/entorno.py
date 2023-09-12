@@ -40,7 +40,7 @@ def detail(nombre):
     ).fetchone()
 
     items = db.execute(
-        """SELECT nombre  
+        """SELECT id, nombre  
             FROM items 
 	        WHERE ubicacion = ?; """,
             (entorno["id"],)

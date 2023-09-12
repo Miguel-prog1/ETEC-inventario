@@ -40,6 +40,9 @@ def create_app(test_config=None):
     from . import entorno
     app.register_blueprint(entorno.bp)
 
+    from . import item
+    app.register_blueprint(item.bp)
+
     app.add_url_rule('/', endpoint='index')
 
 
