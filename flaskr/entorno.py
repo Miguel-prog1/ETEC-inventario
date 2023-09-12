@@ -31,6 +31,19 @@ def index():
     print(peines)
     return render_template('entorno/index.html', peines=peines)
 
-@bp.route('/<string:nombre>/update')
-def update(nombre): 
-    return nombre
+@bp.route('/<string:nombre>/detalle')
+def detail(nombre):
+    db = get_db()
+    entorno = db.execute(
+        'SELECT id, nombre, peine, piso FROM entornos WHERE nombre = ?',
+        (nombre,)
+    ).fetchone()
+
+    items = db.execute(
+        """SELECT nombre  
+            FROM items 
+	        WHERE ubicacion = ?; """,
+            (entorno["id"],)
+    ).fetchall()
+
+    return render_template('entorno/detail.html', entorno=entorno, items=items)

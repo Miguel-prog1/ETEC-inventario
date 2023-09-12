@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS post;
 DROP TABLE IF EXISTS entornos;
+DROP TABLE IF EXISTS items;
 
 
  CREATE TABLE user (
@@ -18,7 +19,7 @@ CREATE TABLE post (
   FOREIGN KEY (author_id) REFERENCES user (id)
 );
 
-CREATE TABLE "entornos" (
+CREATE TABLE entornos (
 	"id"	INTEGER NOT NULL,
 	"nombre"	TEXT NOT NULL UNIQUE,
 	"peine"	INTEGER NOT NULL,
@@ -26,10 +27,33 @@ CREATE TABLE "entornos" (
 	PRIMARY KEY("id" AUTOINCREMENT)
 );
 
+CREATE TABLE items (
+	"id"	INTEGER PRIMARY KEY AUTOINCREMENT,
+	"nombre"	TEXT NOT NULL,
+	"ubicacion"	INTEGER NOT NULL,
+  FOREIGN KEY (ubicacion) REFERENCES entornos(id)
+);
+
 
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (0, "biblioteca",0,1);
+-- ITEMS en la biblioteca
+INSERT INTO items(nombre, ubicacion) 
+  VALUES ("monitor", 0),
+          ("monitor", 0),
+          ("teclado", 0),
+          ("teclado", 0),
+          ("mouse", 0),
+          ("mouse", 0),
+          ("computadora", 0),
+          ("computadora", 0); 
 
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (1,101, 1, 1);
+-- ITEMS en la 101
+INSERT INTO items(nombre, ubicacion) 
+  VALUES ("mesa", 1),
+          ("pizarrón", 1); 
+
+
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (2,102, 1, 1);
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (3,103, 1, 1);
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (4,104, 1, 1);

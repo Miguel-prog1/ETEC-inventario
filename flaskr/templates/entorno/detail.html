@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>Info</h1>
+  <h1>Info {{entorno["nombre"]}}</h1>
   <ul>
     {% for item in items %}
       <li>{{ item["nombre"] }}</li>

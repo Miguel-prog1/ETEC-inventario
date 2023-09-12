@@ -17,7 +17,8 @@
               <ol class="lista-entornos">
                 {% for entorno in entornos %}
                   <li>
-                  </li>                      <h2> <a class="action" href="{{ url_for('entorno.item_detail', nombre=item['nombre']) }}">{{entorno["nombre"]}}</a></h2>
+                    <h2> <a class="action" href="{{ url_for('entorno.detail', nombre=entorno['nombre']) }}">{{entorno["nombre"]}}</a></h2>
+                  </li>                      
 
                 {% endfor %}  
                 </ol>

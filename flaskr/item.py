@@ -7,10 +7,10 @@ from flaskr.auth import login_required
 from flaskr.db import get_db
 
 
-bp = Blueprint('item', __name__)
+bp = Blueprint('item', __name__, url_prefix='/item')
 
 
-@bp.route('item/<number:id>')
+@bp.route('/<number:id>/detail/')
 def item_details(id):
     db = get_db()
     item = db.execute(
