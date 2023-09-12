@@ -12,7 +12,8 @@ bp = Blueprint('entorno', __name__)
 def index():
     db = get_db()
     entornos = db.execute(
-        'SELECT id, nombre, peine,piso FROM entornos ORDER BY peine, piso, nombre'
+        """SELECT e.id, e.nombre, s.nombre AS peine, s.piso FROM entornos e 
+        JOIN sector s ON s.id = e.sector ORDER BY peine, piso, e.nombre"""
     ).fetchall()
     # voy a armar un diccionario que tenga como claves los peines de la escuela
     # los valores de cada uno serán un diccionario que tiene como clave los pisos
@@ -35,7 +36,8 @@ def index():
 def detail(nombre):
     db = get_db()
     entorno = db.execute(
-        'SELECT id, nombre, peine, piso FROM entornos WHERE nombre = ?',
+ """SELECT e.id, e.nombre, s.nombre AS peine, s.piso FROM entornos e 
+        JOIN sector s ON s.id = e.sector WHERE e.nombre = ?""" ,
         (nombre,)
     ).fetchone()
 

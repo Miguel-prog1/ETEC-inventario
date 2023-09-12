@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS post;
 DROP TABLE IF EXISTS entornos;
 DROP TABLE IF EXISTS items;
+DROP TABLE IF EXISTS sector;
 
 
  CREATE TABLE user (
@@ -22,9 +23,9 @@ CREATE TABLE post (
 CREATE TABLE entornos (
 	"id"	INTEGER NOT NULL,
 	"nombre"	TEXT NOT NULL UNIQUE,
-	"peine"	INTEGER NOT NULL,
-  "piso" INTEGER NOT NULL,
-	PRIMARY KEY("id" AUTOINCREMENT)
+	"sector"	INTEGER NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT), 
+  FOREIGN KEY (sector) REFERENCES sector(id)
 );
 
 CREATE TABLE items (
@@ -34,51 +35,63 @@ CREATE TABLE items (
   FOREIGN KEY (ubicacion) REFERENCES entornos(id)
 );
 
+CREATE TABLE sector (
+	"id"	INTEGER NOT NULL,
+	"nombre"	TEXT NOT NULL,
+  "piso" INTEGER NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT), 
+  UNIQUE ("nombre", "piso")
+);
 
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (0, "biblioteca",0,1);
+INSERT INTO sector(nombre, piso) VALUES ("biblioteca", 0), ("peine 1", 0), ("peine 1", 1),
+        ("peine 2", 0), ("peine 2", 1), ("peine 3", 0), ("peine 3", 1);
+INSERT INTO entornos(nombre, sector) VALUES ("ttr", (SELECT id from sector where nombre = "biblioteca"));
+INSERT INTO entornos(nombre, sector) VALUES ("101", (SELECT id from sector where nombre = "peine 1" and piso = 0));
+INSERT INTO entornos(nombre, sector) VALUES ("102", (SELECT id from sector where nombre = "peine 1" and piso = 0));
+INSERT INTO entornos(nombre, sector) VALUES ("103", (SELECT id from sector where nombre = "peine 1" and piso = 0));
+INSERT INTO entornos(nombre, sector) VALUES ("104", (SELECT id from sector where nombre = "peine 1" and piso = 0));
+INSERT INTO entornos(nombre, sector) VALUES ("105", (SELECT id from sector where nombre = "peine 1" and piso = 0));
+INSERT INTO entornos(nombre, sector) VALUES ("111", (SELECT id from sector where nombre = "peine 1" and piso = 1));
+INSERT INTO entornos(nombre, sector) VALUES ("112", (SELECT id from sector where nombre = "peine 1" and piso = 1));
+INSERT INTO entornos(nombre, sector) VALUES ("113", (SELECT id from sector where nombre = "peine 1" and piso = 1));
+INSERT INTO entornos(nombre, sector) VALUES ("114", (SELECT id from sector where nombre = "peine 1" and piso = 1));
+INSERT INTO entornos(nombre, sector) VALUES ("115", (SELECT id from sector where nombre = "peine 1" and piso = 1));
+
+INSERT INTO entornos(nombre, sector) VALUES ("201", (SELECT id from sector where nombre = "peine 2" and piso = 0));
+INSERT INTO entornos(nombre, sector) VALUES ("202", (SELECT id from sector where nombre = "peine 2" and piso = 0));
+INSERT INTO entornos(nombre, sector) VALUES ("203", (SELECT id from sector where nombre = "peine 2" and piso = 0));
+INSERT INTO entornos(nombre, sector) VALUES ("204", (SELECT id from sector where nombre = "peine 2" and piso = 0));
+INSERT INTO entornos(nombre, sector) VALUES ("205", (SELECT id from sector where nombre = "peine 2" and piso = 0));
+INSERT INTO entornos(nombre, sector) VALUES ("211", (SELECT id from sector where nombre = "peine 2" and piso = 1));
+INSERT INTO entornos(nombre, sector) VALUES ("212", (SELECT id from sector where nombre = "peine 2" and piso = 1));
+INSERT INTO entornos(nombre, sector) VALUES ("213", (SELECT id from sector where nombre = "peine 2" and piso = 1));
+INSERT INTO entornos(nombre, sector) VALUES ("214", (SELECT id from sector where nombre = "peine 2" and piso = 1));
+INSERT INTO entornos(nombre, sector) VALUES ("215", (SELECT id from sector where nombre = "peine 2" and piso = 1));
+
+INSERT INTO entornos(nombre, sector) VALUES ("301", (SELECT id from sector where nombre = "peine 3" and piso = 0));
+INSERT INTO entornos(nombre, sector) VALUES ("302", (SELECT id from sector where nombre = "peine 3" and piso = 0));
+INSERT INTO entornos(nombre, sector) VALUES ("303", (SELECT id from sector where nombre = "peine 3" and piso = 0));
+INSERT INTO entornos(nombre, sector) VALUES ("304", (SELECT id from sector where nombre = "peine 3" and piso = 0));
+INSERT INTO entornos(nombre, sector) VALUES ("305", (SELECT id from sector where nombre = "peine 3" and piso = 0));
+INSERT INTO entornos(nombre, sector) VALUES ("311", (SELECT id from sector where nombre = "peine 3" and piso = 1));
+INSERT INTO entornos(nombre, sector) VALUES ("312", (SELECT id from sector where nombre = "peine 3" and piso = 1));
+INSERT INTO entornos(nombre, sector) VALUES ("313", (SELECT id from sector where nombre = "peine 3" and piso = 1));
+INSERT INTO entornos(nombre, sector) VALUES ("314", (SELECT id from sector where nombre = "peine 3" and piso = 1));
+INSERT INTO entornos(nombre, sector) VALUES ("315", (SELECT id from sector where nombre = "peine 3" and piso = 1));
+
 -- ITEMS en la biblioteca
 INSERT INTO items(nombre, ubicacion) 
-  VALUES ("monitor", 0),
-          ("monitor", 0),
-          ("teclado", 0),
-          ("teclado", 0),
-          ("mouse", 0),
-          ("mouse", 0),
-          ("computadora", 0),
-          ("computadora", 0); 
+  VALUES ("monitor", 1),
+          ("monitor", 1),
+          ("teclado", 1),
+          ("teclado", 1),
+          ("mouse", 1),
+          ("mouse", 1),
+          ("computadora", 1),
+          ("computadora", 1); 
 
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (1,101, 1, 1);
 -- ITEMS en la 101
 INSERT INTO items(nombre, ubicacion) 
-  VALUES ("mesa", 1),
-          ("pizarrón", 1); 
+  VALUES ("mesa", 2),
+          ("pizarrón", 2); 
 
-
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (2,102, 1, 1);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (3,103, 1, 1);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (4,104, 1, 1);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (5,105, 1, 1);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (6,111, 1, 2);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (7,112, 1, 2);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (8,113, 1, 2);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (9,114, 1, 2);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (10,115, 1, 2);
-
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (11,201, 2, 1);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (12,202, 2, 1);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (13,203, 2, 1);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (14,204, 2, 1);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (15,205, 2, 1);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (16,211, 2,2);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (17,212, 2,2);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (18,213, 2,2);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (19,214, 2,2);
-
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (20, 301, 3, 1);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (21, 302, 3, 1);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (22, 303, 3, 1);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (23, 311, 3, 2);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (24, 312, 3, 2);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (25, 313, 3, 2);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (26, 314, 3, 2);
-INSERT INTO entornos(id, nombre, peine, piso) VALUES (27, 315, 3, 2);
