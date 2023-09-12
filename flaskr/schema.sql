@@ -30,21 +30,22 @@ CREATE TABLE entornos (
 CREATE TABLE items (
 	"id"	INTEGER PRIMARY KEY AUTOINCREMENT,
 	"nombre"	TEXT NOT NULL,
-	"ubicacion"	INTEGER NOT NULL,
+	"marca" TEXT,
+  "numero_serie" TEXT,
+  "ubicacion"	INTEGER NOT NULL,
   FOREIGN KEY (ubicacion) REFERENCES entornos(id)
 );
 
-
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (0, "biblioteca",0,1);
 -- ITEMS en la biblioteca
-INSERT INTO items(nombre, ubicacion) 
-  VALUES ("monitor", 0),
-          ("monitor", 0),
-          ("teclado", 0),
-          ("teclado", 0),
-          ("mouse", 0),
-          ("mouse", 0),
-          ("computadora", 0),
+INSERT INTO items(nombre, ubicacion, marca, numero_serie)  
+  VALUES ("monitor", 0, "philips"),
+          ("monitor", 0, "philips"),
+          ("teclado", 0, "logitech"),
+          ("teclado", 0, "logitech"),
+          ("mouse", 0, "logitech"),
+          ("mouse", 0, " logitech"),
+          ("computadora", 0,),
           ("computadora", 0); 
 
 INSERT INTO entornos(id, nombre, peine, piso) VALUES (1,101, 1, 1);
