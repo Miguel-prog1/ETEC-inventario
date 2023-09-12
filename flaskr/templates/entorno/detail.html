@@ -4,7 +4,9 @@
   <h1>Info {{entorno["nombre"]}}</h1>
   <ul>
     {% for item in items %}
-      <li>{{ item["nombre"] }}</li>
+      <li>
+        <a class="action" href="{{ url_for('item.detail', id=item['id']) }}">{{item["nombre"]}}</a>
+      </li>
     {% endfor %}
   </ul>
 {% endblock %}
