@@ -25,9 +25,9 @@ def index():
         listaDeEntornos = pisosDelPeine[piso]
         listaDeEntornos.append(e)        
     print(peines)
-    return render_template('entorno/index.html', peines=peines)
+    return jsonify(peines=peines)
 
-@bp.route('/<string:nombre>/detalle')
+@bp.route('/detalle/<string:nombre>/')
 def detail(nombre):
     db = get_db()
     entorno = db.execute(
