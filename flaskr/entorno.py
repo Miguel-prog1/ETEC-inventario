@@ -1,7 +1,7 @@
-from flask import (Blueprint, jsonify, render_template)
+from flask import (Blueprint, jsonify)
 from flaskr.db import get_db
 
-bp = Blueprint('entorno', __name__)
+bp = Blueprint('entorno', __name__, url_prefix='/api/entorno')
 
 @bp.route('/')
 def index():
