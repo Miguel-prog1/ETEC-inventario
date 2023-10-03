@@ -1,9 +1,4 @@
-from flask import (
-    Blueprint, flash, g, redirect, render_template, request, url_for
-)
-from werkzeug.exceptions import abort
-
-from flaskr.auth import login_required
+from flask import (Blueprint, jsonify, render_template)
 from flaskr.db import get_db
 
 bp = Blueprint('entorno', __name__)
@@ -48,4 +43,4 @@ def detail(nombre):
             (entorno["id"],)
     ).fetchall()
 
-    return render_template('entorno/detail.html', entorno=entorno, items=items)
+    return jsonify(entorno=entorno, items=items)
