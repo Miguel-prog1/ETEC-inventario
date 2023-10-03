@@ -83,17 +83,17 @@ INSERT INTO entornos(nombre, sector) VALUES ("315", (SELECT id from sector where
 
 -- ITEMS en la biblioteca
 INSERT INTO items(nombre, ubicacion, marca, numero_serie)  
-  VALUES ("monitor", 0, "philips"),
-          ("monitor", 0, "philips"),
-          ("teclado", 0, "logitech"),
-          ("teclado", 0, "logitech"),
-          ("mouse", 0, "logitech"),
-          ("mouse", 0, " logitech"),
-          ("computadora", 0,),
-          ("computadora", 0); 
+  VALUES ("monitor", 1, "philips", "1235"),
+          ("monitor", 1, "philips", "1236"),
+          ("teclado", 1, "logitech", "1237"),
+          ("teclado", 1, "logitech", "1238"),
+          ("mouse", 1, "logitech", "1239"),
+          ("mouse", 1, " logitech", "1224"),
+          ("computadora", 1, "lenovo", "1214"),
+          ("computadora", 1, "lenovo", "1294");
 
 -- ITEMS en la 101
 INSERT INTO items(nombre, ubicacion) 
   VALUES ("mesa", 2),
-          ("pizarrón", 2); 
+          ("pizarrón", 2);
 
