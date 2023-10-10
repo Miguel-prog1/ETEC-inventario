@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS entornos;
 DROP TABLE IF EXISTS items;
 DROP TABLE IF EXISTS sector;
+DROP TABLE IF EXISTS deposito;
 
 CREATE TABLE entornos (
 	"id"	INTEGER NOT NULL,
@@ -14,9 +15,7 @@ CREATE TABLE items (
 	"id"	INTEGER PRIMARY KEY AUTOINCREMENT,
 	"nombre"	TEXT NOT NULL,
 	"marca" TEXT,
-  "numero_serie" TEXT,
-  "ubicacion"	INTEGER NOT NULL,
-  FOREIGN KEY (ubicacion) REFERENCES entornos(id)
+  "numero_serie" TEXT
 );
 
 CREATE TABLE sector (
@@ -25,6 +24,12 @@ CREATE TABLE sector (
   "piso" INTEGER NOT NULL,
 	PRIMARY KEY("id" AUTOINCREMENT), 
   UNIQUE ("nombre", "piso")
+);
+
+CREATE TABLE deposito (
+	"id"	INTEGER NOT NULL,
+	"nombre"	TEXT NOT NULL UNIQUE, 
+  "sector" TEXT NOT NULL UNIQUE
 );
 
 INSERT INTO sector(nombre, piso) VALUES ("biblioteca", 0), ("peine 1", 0), ("peine 1", 1),
