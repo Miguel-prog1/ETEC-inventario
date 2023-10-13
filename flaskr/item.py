@@ -7,5 +7,5 @@ bp = Blueprint('item', __name__, url_prefix='/api/item')
 def detail(id):
     db = get_db()
     item = db.execute(
-        'SELECT id, nombre, ubicacion FROM items WHERE id = ?', (id,)).fetchone()
+        'SELECT id, nombre FROM items WHERE id = ?', (id,)).fetchone()
     return jsonify(item=item)
