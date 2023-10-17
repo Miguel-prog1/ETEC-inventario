@@ -8,6 +8,20 @@ sistema de gestion de inventario de la escuela tecnica de la UB
 git clone https://github.com/Miguel-prog1/ETEC-inventario.git
 ```
 
+## Requerimientos
+
+### Flask (framework web para python)
+
+```
+pip install flask
+```
+
+### Flask (módulo de flask para Cross-origin resource sharing (CORS))
+
+```
+pip install flask-cors
+```
+
 ## para crear base de datos
 
 ```
